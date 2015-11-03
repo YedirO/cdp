@@ -41,6 +41,6 @@ class CreateTableUserStory extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('userstory');
     }
 }

@@ -1,38 +1,39 @@
-﻿<!doctype html>
+﻿@extends('app')
 
-<html lang="en">
+@section('content')
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-heading">Backlog</div>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Backlog</title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-</head>
-<body>
+					<div class="panel-body">
+						@if(count($userstories))
+							<TABLE BORDER="1">
 
-<header>
-	<H1>Backlog</H1>
-</header>
+								<TR>
+									<TH> N° </TH>
+									<TH> Description </TH>
+									<TH> Priorité </TH>
+									<TH> Difficulté </TH>
+								</TR>
 
-@if(count($userstories))
-	<TABLE BORDER="1">
+								@foreach($userstories as $us)
+									<TR>
+										<TH> {{$us->id}} </TH>
+										<TD> {{$us->description}} </TD>
+										<TD> {{$us->priority}} </TD>
+										<TD> {{$us->difficulty}} </TD>
+									</TR>
 
-		<TR>
-			<TH> N° </TH>
-			<TH> Description </TH>
-			<TH> Priorité </TH>
-			<TH> Difficulté </TH>
-		</TR>
+								@endforeach
+							</TABLE>
+						@endif
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+@endsection
 
-		@foreach($userstories as $us)
-			<TR>
-				<TH> {{$us->id}} </TH>
-				<TD> {{$us->description}} </TD>
-				<TD> {{$us->priority}} </TD>
-				<TD> {{$us->difficulty}} </TD>
-			</TR>
 
-		@endforeach
-	</TABLE>
-@endif
-</body>
-</html>

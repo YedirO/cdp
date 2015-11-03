@@ -38,6 +38,6 @@ class CreateTableProject extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('project');
     }
 }
